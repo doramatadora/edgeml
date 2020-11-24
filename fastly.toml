@@ -1,6 +1,6 @@
-version = 20
+version = 36
 name = "hackadora"
-description = "HACK2020 - Something something"
+description = "HACK2020 - Inference at the edge, using Neural Network Exchange Format (NNEF) compiled models"
 authors = ["<dmilitaru@fastly.com>"]
 language = "rust"
 service_id = "3TVQJGdrxToYQHiNdddpyI"

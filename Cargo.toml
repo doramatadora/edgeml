@@ -1,13 +1,11 @@
 [package]
 name = "hackadora"
 version = "0.1.0"
-authors = []
+authors = ["dmilitaru@fastly.com"]
 edition = "2018"
-
-[profile.release]
-debug = true
 
 [dependencies]
 fastly = "^0.6.0-beta1"
+tract = { git = "https://github.com/sonos/tract.git#e8356468c1501a5988e49db8beae5ea41e324ab5", branch = "main" }
 tract-nnef = { git = "https://github.com/sonos/tract.git#e8356468c1501a5988e49db8beae5ea41e324ab5", branch = "main" }
-# image = { version = "0.23.0", default-features = false, features = ["jpeg"] }
+image = { version = "0.23.0", default-features = false, features = ["jpeg"] }
