@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Machine learning (ML) inference in WebAssembly, on Fastly's Compute@Edge</title>
+    <link rel="icon" type="image/x-icon" href="./favicon.ico" />
+    <link rel="stylesheet" type="text/css" href="./style.css" />
+  </head>
+  <body>
+    <section>
+      <p class="disclaimer">
+        Choose images from the gallery below. You can also
+        <label for="pastebin">add your own</label
+        ><input
+          id="pastebin"
+          type="file"
+          placeholder="Upload an image here..."
+          accept="image/*"
+        />, but please do not upload pictures that include any names, faces or
+        other identifiable features of a person.
+      </p>
+    </section>
+    <aside>
+      <span id="confidence">🕵️ click an image...</span>
+      <span id="prediction"></span>
+    </aside>
+    <main>
+      <div class="thingies" id="mainthingies">
+        <div id="uploadthingy" class="thingy uploadedImg">
+          <img id="inputimg" />
+        </div>
+        <div class="thingy">
+          <img
+            src="https://randomly-sweet-mongrel.edgecompute.app/images/charlotte-v2.jpg"
+            alt="Dora's cat, Charlotte"
+          />
+        </div>
+        <div class="thingy">
+          <img
+            src="https://randomly-sweet-mongrel.edgecompute.app/images/p1988779935.jpg"
+            alt="Photo credit to Clay Banks, via Unsplash - https://unsplash.com/photos/-9JwJTTL-eA"
+          />
+        </div>
+        <div class="thingy">
+          <img
+            src="https://randomly-sweet-mongrel.edgecompute.app/images/p6695672133.jpg"
+            alt="Photo credit to Jossuha Théophile, via Unsplash - https://unsplash.com/photos/ZhVKeFCb6NE"
+          />
+        </div>
+        <div class="thingy">
+          <img
+            src="https://randomly-sweet-mongrel.edgecompute.app/images/p9817707456.jpg"
+            alt="Photo credit to Helmer Galvis, via Unsplash - https://unsplash.com/photos/Vyr35DK159I"
+          />
+        </div>
+        <div class="thingy">
+          <img
+            src="https://randomly-sweet-mongrel.edgecompute.app/images/p6288687861.jpg"
+            alt="Photo credit to Lena Sida, via Unsplash - https://unsplash.com/photos/-D8oSKH1Gng"
+          />
+        </div>
+        <div class="thingy">
+          <img
+            src="https://randomly-sweet-mongrel.edgecompute.app/images/p7825704335.jpg"
+            alt="Photo credit to Alistair, via Unsplash - https://unsplash.com/photos/1KU725o-CpY"
+          />
+        </div>
+        <div class="thingy">
+          <img
+            src="https://randomly-sweet-mongrel.edgecompute.app/images/p2470404914.jpg"
+            alt="Photo credit to Erda Estremera, via Unsplash - https://unsplash.com/photos/JBrbzg5N7Go"
+          />
+        </div>
+        <div class="thingy">
+          <img
+            src="https://randomly-sweet-mongrel.edgecompute.app/images/p3807140809.jpg"
+            alt="Photo credit to Hans-Jurgen Mager, via Unsplash - https://unsplash.com/photos/AZ31hv9kdzE"
+          />
+        </div>
+      </div>
+    </main>
+  </body>
+  <script src="./script.js" charset="UTF-8"></script>
+</html>

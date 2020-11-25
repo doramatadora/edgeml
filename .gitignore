@@ -1,5 +1,6 @@
-/target
+target
 **/*.rs.bk
 .tmp
 .DS_Store
 pkg
+bin

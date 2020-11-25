@@ -1,6 +1,9 @@
-version = 36
-name = "hackadora"
-description = "HACK2020 - Inference at the edge, using Neural Network Exchange Format (NNEF) compiled models"
+# This file describes a Fastly Compute@Edge package. To learn more visit:
+# https://developer.fastly.com/reference/fastly-toml/
+
 authors = ["<dmilitaru@fastly.com>"]
+description = "Machine learning inference at the edge"
 language = "rust"
+manifest_version = 1
+name = "hackadora"
 service_id = "3TVQJGdrxToYQHiNdddpyI"
