@@ -17,7 +17,7 @@ fn main(mut req: Request) -> Result<Response, Error> {
             emit_log(
                 context,
                 &session,
-                "Request received. Loading model mobilenet_v2_1.4_224 (ImageNet).",
+                "Loading model mobilenet_v2_1.4_224 (ImageNet).",
             );
             let model = include_bytes!("../models/mobilenet_v2_1.4_224_frozen.pb");
             match ml::infer(model, &req.take_body_bytes(), &session) {
@@ -25,7 +25,7 @@ fn main(mut req: Request) -> Result<Response, Error> {
                     emit_log(
                         context,
                         &session,
-                        &format!("Image classified as ImageNet label index {} (confidence {:2}).", confidence, label_index)
+                        &format!("Image classified! ImageNet label index {} (confidence {:2}).", confidence, label_index)
                     );
                     resp.set_body_text_plain(&format!("{},{}", confidence, label_index));
                 }
