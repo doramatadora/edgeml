@@ -49,7 +49,7 @@ pub fn infer(model_bytes: &[u8], image_bytes: &[u8], session: &str) -> TractResu
     emit_log(
         context,
         session,
-        &format!("Traversing result graph to find a best-confidence fit... (graph dump: {:?})", result)
+        &format!("Inference complete. Traversing results graph to find a best-confidence fit...")
     );
 
     // Find the max value with its index.

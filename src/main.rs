@@ -25,7 +25,7 @@ fn main(mut req: Request) -> Result<Response, Error> {
                     emit_log(
                         context,
                         &session,
-                        &format!("Image classified! ImageNet label index {} (confidence {:2}).", confidence, label_index)
+                        &format!("Image classified! ImageNet label index {} (confidence {:2}).", label_index, confidence)
                     );
                     resp.set_body_text_plain(&format!("{},{}", confidence, label_index));
                 }
