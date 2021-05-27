@@ -10,7 +10,7 @@ fn main(mut req: Request) -> Result<Response, Error> {
     let mut resp = Response::new()
         .with_header("Access-Control-Allow-Origin", "*")
         .with_header("Access-Control-Allow-Headers", "Content-Type");
-    let session = req.get_query_str().unwrap_or("session=")[7..].to_owned();
+    let session = req.get_query_str().unwrap_or("session=")[8..].to_owned();
     let context = "main";
     match (req.get_method(), req.get_header_str("Content-Type")) {
         (&Method::POST, Some("image/jpeg")) => {
