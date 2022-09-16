@@ -83,7 +83,7 @@ fn get_static_content(path: String) -> Response {
         .and_then(|(i, _)| path.get(i + 1..))
         .unwrap_or("");
 
-    const PROJECT_DIR: Dir = include_dir!("../demo/");
+    const PROJECT_DIR: Dir = include_dir!("../docs/");
 
     let mut body = Body::new();
 

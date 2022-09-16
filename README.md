@@ -16,7 +16,7 @@ Using the Fastly CLI, publish the root package and note the `[funky-domain].edge
 fastly compute publish
 ```
 
-Update L54 in [`demo/script.js`](./demo/script.js) to `[funky-domain].edgecompute.app` you just noted, and publish the static demo site separately:
+Update L54 in [`docs/script.js`](./docs/script.js) to `[funky-domain].edgecompute.app` you just noted, and publish the static demo site separately:
 
 ```sh
 cd static-host
