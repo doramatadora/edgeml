@@ -1,12 +1,12 @@
 [package]
-name = "hackadora"
-version = "0.1.0"
+name = "edgeml"
+version = "0.2.0"
 authors = []
 edition = "2018"
 
 [dependencies]
-fastly = "0.7.1"
+fastly = "0.8.7"
 # don't fancy tensorflow? Try: tract-kaldi, tract-onnx, tract-nnef 
-tract_flavour = { package = "tract-tensorflow", version = "0.14.1" }
-image = { version = "0.23.14", default-features = false, features = ["jpeg"] }
+tract_flavour = { package = "tract-tensorflow", version = "0.17.7" }
+image = { version = "0.24.3", default-features = false, features = ["jpeg"] }
 rand = "0.8.3"

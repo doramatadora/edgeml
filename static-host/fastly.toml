@@ -1,8 +1,9 @@
 # This file describes a Fastly Compute@Edge package. To learn more visit:
 # https://developer.fastly.com/reference/fastly-toml/
 
-authors = ["<dmilitaru@fastly.com>"]
-description = "Machine learning inference at the edge"
+authors = ["<oss@fastly.com>"]
+description = "Static host for EdgeML demo"
 language = "rust"
 manifest_version = 2
-name = "edgeml"
+name = "edgeml-docs"
+service_id = "7TQh1U0EJ5WzmfX18G8gYN"
