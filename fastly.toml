@@ -4,6 +4,5 @@
 authors = ["<dmilitaru@fastly.com>"]
 description = "Machine learning inference at the edge"
 language = "rust"
-manifest_version = 1
-name = "hackadora"
-service_id = "3TVQJGdrxToYQHiNdddpyI"
+manifest_version = 2
+name = "edgeml"
