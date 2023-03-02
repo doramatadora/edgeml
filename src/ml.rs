@@ -9,10 +9,7 @@ pub fn infer(model_bytes: &[u8], image_bytes: &[u8]) -> TractResult<(f32, i32)> 
         // Load the model.
         .model_for_read(&mut Cursor::new(model_bytes))?
         // Specify input type and shape.
-        .with_input_fact(
-            0,
-            InferenceFact::dt_shape(f32::datum_type(), tvec!(1, 224, 224, 3)),
-        )?
+        .with_input_fact(0, f32::fact(&[1, 224, 224, 3]).into())?
         // Optimize the model.
         .into_optimized()?
         // Make the model runnable and fix its inputs and outputs.
@@ -34,7 +31,7 @@ pub fn infer(model_bytes: &[u8], image_bytes: &[u8]) -> TractResult<(f32, i32)> 
     .into();
 
     // Run the model on the input.
-    let result = model.run(tvec!(img))?;
+    let result = model.run(tvec!(img.into()))?;
     println!("Inference complete. Traversing results graph to find a best-confidence fit...");
 
     // Find the max value with its index.
