@@ -1,8 +1,8 @@
 #!/bin/bash
-fastly compute build --force
+fastly compute build
 
 BUNDLE_DIR=pkg
-PROJECT=hackadora
+PROJECT=edgeml-objstore
 PKDIR=$BUNDLE_DIR/$PROJECT
 
 # Create a bundle directory
@@ -19,7 +19,7 @@ cp Cargo.toml $PKDIR
 
 # Optimise the wasm some more
 # https://github.com/WebAssembly/binaryen#tools
-wasm-opt target/wasm32-wasi/release/$PROJECT.wasm -O -o $PKDIR/bin/main.wasm 
+wasm-opt bin/main.wasm -O -o $PKDIR/bin/main.wasm 
 
 # Archive the directory
 (cd $BUNDLE_DIR && tar -czf $PROJECT.tar.gz $PROJECT)

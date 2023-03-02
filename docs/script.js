@@ -1,3 +1,5 @@
+const ML_BACKEND = "https://willingly-daring-vulture.edgecompute.app";
+
 const pastebin = document.getElementById("pastebin");
 const container = document.getElementById("mainthingies");
 const confidenceEl = document.getElementById("confidence");
@@ -49,9 +51,8 @@ async function infer(body) {
   confidenceEl.innerText = "⏳";
   predictionEl.innerText = "guessing...";
   try {
-    const session = new URLSearchParams(document.location.search.substring(1)).get("session");
     const response = await fetch(
-      "https://frankly-probable-chimp.edgecompute.app/?session=" + session,
+      ML_BACKEND,
       {
         method: "POST",
         headers: {

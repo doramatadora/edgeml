@@ -1,39 +1,42 @@
-mod log;
 mod ml;
 
 use fastly::http::{Method, StatusCode};
-use fastly::{Error, Request, Response};
-use log::emit_log;
+use fastly::{Error, Request, Response, ObjectStore};
+
+const ML_MODEL: &str = "mobilenet_v2_1.4_224";
 
 #[fastly::main]
 fn main(mut req: Request) -> Result<Response, Error> {
+    // `models` Object Store.
+    let models = ObjectStore::open("models")?.unwrap();
+
     let mut resp = Response::new()
         .with_header("Access-Control-Allow-Origin", "*")
         .with_header("Access-Control-Allow-Headers", "Content-Type");
-    let session = req.get_query_str().unwrap_or("session=")[8..].to_owned();
-    let context = "main";
+
     match (req.get_method(), req.get_header_str("Content-Type")) {
         (&Method::POST, Some("image/jpeg")) => {
-            emit_log(
-                context,
-                &session,
-                "Loading model mobilenet_v2_1.4_224 (ImageNet).",
-            );
-            let model = include_bytes!("../models/mobilenet_v2_1.4_224_frozen.pb");
-            match ml::infer(model, &req.take_body_bytes(), &session) {
-                Ok((confidence, label_index)) => {
-                    emit_log(
-                        context,
-                        &session,
-                        &format!("Image classified! ImageNet label index {} (confidence {:2}).", label_index, confidence)
-                    );
-                    resp.set_body_text_plain(&format!("{},{}", confidence, label_index));
+            // To use a model, load it from the Object Store.
+            match models.lookup_bytes(ML_MODEL) {
+                Ok(Some(model)) => {
+                    println!("Loaded model {} from Object Store.", ML_MODEL);
+                    match ml::infer(&model, &req.take_body_bytes()) {
+                        Ok((confidence, label_index)) => {
+                            println!("Image classified! ImageNet label index {} (confidence {:2}).", label_index, confidence);
+                            resp.set_body_text_plain(&format!("{},{}", confidence, label_index));
+                        }
+                        Err(e) => {
+                            eprintln!("Inference error: {:?}", e);
+                            resp.set_body_text_plain(&format!("errored: {:?}", e));
+                        }
+                    }
+                },
+                _ => {
+                    resp.set_status(StatusCode::INTERNAL_SERVER_ERROR);
+                    resp.set_body_text_plain(&format!("Failed to load model {} from Object Store.", ML_MODEL));
                 }
-                Err(e) => {
-                    emit_log(context, &session, &format!("Inference error: {:?}", e));
-                    resp.set_body_text_plain(&format!("errored: {:?}", e));
-                }
-            }
+            };
+            
         }
         (&Method::OPTIONS, _) => resp.set_status(StatusCode::OK),
         _ => resp.set_status(StatusCode::IM_A_TEAPOT),
