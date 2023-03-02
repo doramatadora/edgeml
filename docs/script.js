@@ -51,7 +51,7 @@ async function infer(body) {
   try {
     const session = new URLSearchParams(document.location.search.substring(1)).get("session");
     const response = await fetch(
-      "https://frankly-probable-chimp.edgecompute.app/?session=" + session,
+      "https://radically-excited-sunfish.edgecompute.app/?session=" + session,
       {
         method: "POST",
         headers: {

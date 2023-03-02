@@ -5,8 +5,8 @@ authors = []
 edition = "2018"
 
 [dependencies]
-fastly = "0.8.7"
+fastly = "0.9.1"
 # don't fancy tensorflow? Try: tract-kaldi, tract-onnx, tract-nnef 
 tract_flavour = { package = "tract-tensorflow", version = "0.17.7" }
-image = { version = "0.24.3", default-features = false, features = ["jpeg"] }
-rand = "0.8.3"
+image = { version = "0.24.5", default-features = false, features = ["jpeg"] }
+rand = "0.8.5"

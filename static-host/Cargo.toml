@@ -1,5 +1,5 @@
 [package]
-name = "compute-starter-kit-rust-default"
+name = "edgeml-demo"
 version = "0.1.0"
 authors = []
 edition = "2018"
@@ -11,6 +11,6 @@ publish = false
 debug = 1
 
 [dependencies]
-fastly = "0.8.7"
-include_dir = "0.7.2"
-mime_guess = "2.0.3"
+fastly = "0.9.1"
+include_dir = "0.7.3"
+mime_guess = "2.0.4"

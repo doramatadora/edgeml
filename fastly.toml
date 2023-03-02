@@ -2,7 +2,11 @@
 # https://developer.fastly.com/reference/fastly-toml/
 
 authors = ["<dmilitaru@fastly.com>"]
-description = "Machine learning inference at the edge"
+description = "Machine learning inference at the edge and Object Store"
 language = "rust"
 manifest_version = 2
-name = "edgeml"
+name = "edgeml-objstore"
+service_id = "oofCZrn4JHkjdtm9lySZK1"
+
+# [local_server]
+#   object_store.models = []
